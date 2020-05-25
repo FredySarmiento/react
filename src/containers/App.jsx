@@ -12,10 +12,23 @@ const App=()=>(
     <div className>
     <Header/>
     <Search/>
-    <Categories>
+    <Categories title="Mi Lista">
         <Carousel>
             <CarouselItem/>
             <CarouselItem/>
+            <CarouselItem/>
+            <CarouselItem/>
+        </Carousel>
+    </Categories>
+    <Categories title="Tendencias">
+        <Carousel>
+            <CarouselItem/>
+            <CarouselItem/>
+            <CarouselItem/>
+        </Carousel>
+    </Categories>
+    <Categories title="Originales">
+        <Carousel>
             <CarouselItem/>
             <CarouselItem/>
         </Carousel>

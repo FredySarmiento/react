@@ -4,41 +4,53 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: './src/index.js',
-        output: {
-            path: path.resolve(__dirname, 'dist'),
-            filename: 'bundle.js',
-            },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        },
         resolve: {
         extensions: ['.js', '.jsx'],
         },
     module: {
-    rules: [
+    rules: 
+    [
         {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-        },
-        },
-    {
-        test: /\.html$/,
-        use: {
-        loader: 'html-loader',
-        },
-    },
-    {
-        test:/\.(s*)css$/,
-        use:[
-            {
-                loader:MiniCssExtractPlugin.loader,
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
             },
-            'css-loader',
-            'sass-loader'
-        ]
-    }
+        },
+        {
+            test: /\.html$/,
+            use: {
+            loader: 'html-loader',
+            },
+        },
+        {
+            test:/\.(s*)css$/,
+            use:[
+                {
+                    loader:MiniCssExtractPlugin.loader,
+                },
+                'css-loader',
+                'sass-loader'
+                ]
+        },
+        {
+            test:/\.(png|gis|jpg)$/,
+            use:[
+                {
+                'loader': 'file-loader',
+                options:{
+                    name:'assets/[hash].[ext'
+                }
+                }
+            ]
+        }
     ],
     },
-    plugins: [
+plugins: [
     new HtmlWebpackPlugin({
             template: './public/index.html',
             filename: './index.html',
