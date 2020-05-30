@@ -1,6 +1,24 @@
 const reducer = (state, action)=>{
-
-    return state;
+    switch (action.type){
+        case 'SET_FAVORITE':
+            if ( state.myList.filter((items) => items.id === action.payload.id).length === 0) {
+				return {
+					...state,
+					myList: [...state.myList, action.payload],
+				};
+			} else {
+				return {
+					...state,
+				};
+			}
+        case 'DELETE_FAVORITE':
+            return{
+                ...state,
+                myList:state.myList.filter(items => items.id !== action.payload )
+            }
+        default:
+            return state;
+    }
 }
 
 export default reducer;
