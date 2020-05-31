@@ -55,7 +55,7 @@ return(
                 <div><img src={googleIcon} /> Inicia sesión con Google</div>
                 <div><img src={twitterIcon} /> Inicia sesión con Twitter</div>
             </section>
-                <p className="login__container--register">No tienes ninguna cuenta
+                <p className="login__container--register">No tienes ninguna cuenta {' '}
                 <Link to="/register">
                 Regístrate
                 </Link>
