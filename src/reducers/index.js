@@ -38,6 +38,13 @@ const reducer = (state, action)=>{
                 || state.original.find(item => item.id === Number(action.payload))
                 ||[]
             }
+            case 'VIDEO_SEARCH':
+            return {
+                ...state,
+                videoSearched: state.trends.find(video => video.title.toLowerCase() === action.payload.trim().toLowerCase())
+                || state.originals.find(video => video.title.toLowerCase() === action.payload.trim().toLowerCase())
+                || {}
+            }
         default:
             return state;
     }
