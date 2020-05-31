@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { connect } from 'react-redux';
 import Search from '../components/Search';
+import Header from '../components/Header';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
@@ -13,6 +14,7 @@ const Home = ({myList,trends,originals}) => {
     /*Uso de hooks const initialState = useInitialState(API);*/
     return /* validacion de si tengo o no datos en la api initialState.length === 0 ? <h1>Loading...</h1> : */(
         <>
+            <Header />
             <Search />
         {myList.length > 0 &&
         <Categories title="Mi Lista">
